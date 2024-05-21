@@ -1,42 +1,131 @@
 body {
-    margin: 0;
-    height: 100vh;
+    background: #222;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.section {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #222;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    position: relative;
+    padding: 50px 15px;
 }
 
-.fade {
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
 }
 
-.fade.visible {
-    opacity: 1;
-}
-
-.content {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: 4px 8px 16px rgba(0,0,0,0.5);
-    padding: 50px;
-    border-radius: 15px;
+.content, .p-5 {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
     text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.download-btn {
-    display: inline-block;
-    background: #444;
-    color: #fff;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
+.glass {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Additional styles for modern changelog formatting */
+.update-entry {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f9fa; /* Lighter gray background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Dark text color */
+}
+.update-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.version {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff; /* Blue version text */
+    margin-bottom: 5px;
+}
+.date {
+    font-size: 0.9rem;
+    color: #6c757d; /* Gray date text */
+    margin-bottom: 10px;
+}
+.changes {
+    list-style-type: none;
+    padding-left: 0;
+}
+.change-item {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+    color: #333; /* Dark text color for change items */
+}
+.change-item:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #007bff; /* Blue bullet point */
+}
+
+a {
+    color: #333;
     text-decoration: none;
-    transition: background 0.3s ease-in-out;
+    transition: color 0.3s;
 }
 
-.download-btn:hover {
-    background: #666;
+a:hover {
+    color: #222;
+}
+
+.navbar-brand {
+    margin-left: 10px;
 }
